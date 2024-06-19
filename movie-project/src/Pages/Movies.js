@@ -1,4 +1,3 @@
-/*
 import React, { useState, useEffect } from 'react';
 import { fetchMovies } from '../util/API';
 
@@ -45,4 +44,3 @@ const Movies = () => {
 };
 
 export default Movies;
-*/
