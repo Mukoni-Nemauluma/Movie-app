@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchMovieDetails, fetchRelatedMovies, fetchCredits, fetchMovieVideos } from '../util/API';
+import { fetchMovieDetails, fetchRelatedMovies, fetchCredits, fetchVideos } from '../util/API';
 
-const SingleMovie = () => {
+const SingleMovie = ({movieId}) => {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
   const [relatedMovies, setRelatedMovies] = useState([]);
@@ -11,29 +11,24 @@ const SingleMovie = () => {
 
   useEffect(() => {
     const fetchDetails = async () => {
-      const response = await fetchMovieDetails(id);
-      setMovie(response);
-    };
+      try {
+        const movieResponse = await fetchMovieDetails(id);
+        setMovie(movieResponse);
 
-    const fetchRelated = async () => {
-      const response = await fetchRelatedMovies(id);
-      setRelatedMovies(response.results || []);
-    };
+        const relatedResponse = await fetchRelatedMovies(id);
+        setRelatedMovies(relatedResponse.results || []);
 
-    const fetchMovieCredits = async () => {
-      const response = await fetchCredits(id);
-      setCredits(response.cast.slice(0, 5));
-    };
+        const creditsResponse = await fetchCredits(id);
+        setCredits(creditsResponse.cast.slice(0, 5) || []);
 
-    const fetchMovieVideos = async () => {
-      const response = await fetchMovieVideos(id);
-      setVideos(response.results);
+        const videosResponse = await fetchVideos(id);
+        setVideos(videosResponse.results || []);
+      } catch (error) {
+        console.error("Error fetching movie details:", error);
+      }
     };
 
     fetchDetails();
-    fetchRelated();
-    fetchMovieCredits();
-    fetchMovieVideos();
   }, [id]);
 
   if (!movie) {
@@ -43,26 +38,35 @@ const SingleMovie = () => {
   return (
     <div>
       <h1>{movie.title}</h1>
-      <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
-      <p>Release Date: {movie.release_date}</p>
-      <p>Runtime: {movie.runtime} minutes</p>
-      <p>Language: {movie.original_language}</p>
-      <p>Rating: {movie.vote_average} ({movie.vote_count} votes)</p>
-      <p>Director: {movie.credits.crew.find(member => member.job === 'Director')?.name}</p>
-      <p>Overview: {movie.overview}</p>
+      {movie.poster_path ? (
+        <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
+      ) : (
+        <p>No poster available</p>
+      )}
+      <p><strong>Release Date:</strong> {movie.release_date}</p>
+      <p><strong>Runtime:</strong> {movie.runtime} minutes</p>
+      <p><strong>Language:</strong> {movie.original_language}</p>
+      <p><strong>Rating:</strong> {movie.vote_average} ({movie.vote_count} votes)</p>
+      <p><strong>Overview:</strong> {movie.overview}</p>
       <h2>Cast</h2>
       <ul>
         {credits.map((actor) => (
-          <li key={actor.id}>{actor.name}</li>
+          <li key={actor.id}>
+            <p>{actor.name}</p>
+          </li>
         ))}
       </ul>
       <h2>Related Movies</h2>
-      <div>
+      <div className="related-movies-grid">
         {relatedMovies.map((relatedMovie) => (
-          <div key={relatedMovie.id}>
-            <h3>{relatedMovie.title}</h3>
+          <div key={relatedMovie.id} className="related-movie-card">
             <a href={`/movies/${relatedMovie.id}`}>
-              <img src={`https://image.tmdb.org/t/p/w500${relatedMovie.poster_path}`} alt={relatedMovie.title} />
+              {relatedMovie.poster_path ? (
+                <img src={`https://image.tmdb.org/t/p/w500${relatedMovie.poster_path}`} alt={relatedMovie.title} />
+              ) : (
+                <p>No poster available</p>
+              )}
+              <h3>{relatedMovie.title}</h3>
             </a>
           </div>
         ))}
@@ -77,19 +81,6 @@ const SingleMovie = () => {
           allowFullScreen
         />
       )}
-      <h2>Production Companies</h2>
-      <div>
-        {movie.production_companies.map((company) => (
-          <div key={company.id}>
-            <img
-              src={`https://image.tmdb.org/t/p/w500${company.logo_path}`}
-              alt={company.name}
-              style={{ width: '100px' }}
-            />
-            <p>{company.name}</p>
-          </div>
-        ))}
-      </div>
     </div>
   );
 };
