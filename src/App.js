@@ -1,28 +1,30 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './Components/Navbar/Navbar';
-import Home from './Pages/Home';
-import Actors from './Pages/Actors';
-import Movies from './Pages/Movies';
-import SingleActor from './Pages/SingleActor';
-import SingleMovie from './Pages/SingleMovie';
+import React from "react"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import Home from "./Pages/Home/Home"
+
+import Footer from "./components/Footer/Footer"
+import SearchResults from "./components/SearchBar/SearchResults"
+import Navbar from "./components/Navbar/Navbar"
+import Genre from "./components/Genre/Genre"
+import Actors from "./Pages/Actors/Actors"
+import ActorsList from "./Pages/Actors/ActorsList"
+import Movies from "./Pages/Movies/MovieDetails"
 
 function App() {
   return (
     <Router>
       <Navbar />
-      <div className="App">
-    
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/actors" element={<Actors />} />
-          <Route path="/actors/:id" element={<SingleActor />} />
-          <Route path="/movies" element={<Movies />} />
-          <Route path="/movies/:id" element={<SingleMovie />} />
-        </Routes>
-      </div>
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route path="/search-results" element={<SearchResults />} />
+        <Route path="/genres/:genreId" element={<Genre />} />
+        <Route path="/actors/:actorId" element={<Actors />} />
+        <Route exact path="/actors" element={<ActorsList />} />
+        <Route path="/movies/:category" element={<Movies />} />
+      </Routes>
+      <Footer />
     </Router>
-  );
+  )
 }
 
-export default App;
+export default App
