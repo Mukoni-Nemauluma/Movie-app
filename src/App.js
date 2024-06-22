@@ -8,8 +8,7 @@ import Navbar from "./components/Navbar/Navbar"
 import Genre from "./components/Genre/Genre"
 import Actors from "./Pages/Actors/Actors"
 import ActorsList from "./Pages/Actors/ActorsList"
-import Movies from "./Pages/Movies/MovieDetails"
-
+import Movies from "./Pages/Movies/Movies"
 function App() {
   return (
     <Router>
