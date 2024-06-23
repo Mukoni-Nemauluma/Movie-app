@@ -1,5 +1,7 @@
 import React from "react"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import './App.css';
+import useScrollToTop from "./ScrollToTop"
 
 import Home from "./Pages/Home/Home";
 import Footer from "./components/Footer/Footer";
@@ -14,6 +16,7 @@ import TVShows from "./Pages/TVShows/TvShows";
 import SingleTVShow from "./Pages/TVShows/SingleTVShow";
 
 function App() {
+  useScrollToTop()
   return (
     <Router>
       <Navbar />
