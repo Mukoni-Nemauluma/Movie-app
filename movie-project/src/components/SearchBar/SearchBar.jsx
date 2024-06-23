@@ -1,44 +1,50 @@
-import React, { useState } from "react"
-import { useNavigate } from "react-router-dom"
-import { searchMovies, searchActors } from "../../util/API"
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { searchMovies, searchActors, searchTVShows } from "../../util/API";
 
 const SearchBar = () => {
-  const [query, setQuery] = useState("")
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState("")
+  const [query, setQuery] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleSearch = async (e) => {
-    e.preventDefault()
-    setLoading(true)
-    setError("")
+    e.preventDefault();
+    setLoading(true);
+    setError("");
 
     try {
-      const movieResults = await searchMovies(query)
-      const actorResults = await searchActors(query)
+      const movieResults = await searchMovies(query);
+      const actorResults = await searchActors(query);
+      const tvShowResults = await searchTVShows(query);
 
       const movies = movieResults.results.map((movie) => ({
         ...movie,
         media_type: "movie",
-      }))
+      }));
       const actors = actorResults.results.map((actor) => ({
         ...actor,
         media_type: "person",
-      }))
-      const results = [...movies, ...actors]
+      }));
+      const tvShows = tvShowResults.results.map((tvShow) => ({
+        ...tvShow,
+        media_type: "tv",
+      }));
+
+      const results = [...movies, ...actors, ...tvShows];
 
       if (results.length === 0) {
-        setError("No results found")
+        setError("No results found");
       } else {
-        navigate("/search-results", { state: { props: { results } } })
+        navigate("/search-results", { state: { props: { results } } });
       }
     } catch (error) {
-      setError("Error searching. Please try again.")
+      setError("Error searching. Please try again.");
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
 
   return (
     <div className="search-bar">
@@ -47,14 +53,14 @@ const SearchBar = () => {
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search for movies or actors..."
+          placeholder="Search for movies, TV shows, or actors..."
         />
         <button type="submit">Search</button>
       </form>
       {loading && <div>Loading...</div>}
       {error && <div className="error-message">{error}</div>}
     </div>
-  )
-}
+  );
+};
 
-export default SearchBar
+export default SearchBar;

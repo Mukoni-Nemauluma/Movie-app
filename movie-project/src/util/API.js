@@ -61,6 +61,10 @@ export const searchActors = async (query) => {
   return fetchAPI(`/search/person`, { query: encodeURIComponent(query) });
 };
 
+export const searchTVShows = async (query) => {
+  return fetchAPI(`/search/tv`, { query: encodeURIComponent(query) });
+};
+
 export const fetchMoviesByActor = async (actorId) => {
   return fetchAPI(`/person/${actorId}/movie_credits`);
 };
@@ -89,4 +93,25 @@ export const fetchRelatedMovies = async (id) => {
 
 export const fetchSearchResults = async (query) => {
   return fetchAPI(`/search/multi`)
-}
+};
+
+export const fetchTVShows = async (criteria = "popular") => {
+  return fetchAPI(`/tv/${criteria}`);
+};
+
+
+export const fetchTVShowDetails = async (tvId) => {
+  return fetchAPI(`/tv/${tvId}`);
+};
+
+export const fetchTVCredits = async (tvId) => {
+  return fetchAPI(`/tv/${tvId}/credits`);
+};
+
+export const fetchRelatedTVShows = async (id) => {
+  return fetchAPI(`/tv/${id}/similar`);
+};
+
+export const fetchTVVideos = async (tvId) => {
+  return fetchAPI(`/tv/${tvId}/videos`);
+};

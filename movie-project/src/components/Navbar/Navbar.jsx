@@ -1,19 +1,19 @@
-import React, { useState } from "react"
-import { Link } from "react-router-dom"
-import SearchBar from "../SearchBar/SearchBar"
-import GenreDropdown from "../Genre/GenreDropdown"
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import SearchBar from "../SearchBar/SearchBar";
+import GenreDropdown from "../Genre/GenreDropdown";
 
 const Navbar = () => {
-  const [showMovies, setShowMovies] = useState(false)
-  const [showGenres, setShowGenres] = useState(false)
+  const [showMovies, setShowMovies] = useState(false);
+  const [showGenres, setShowGenres] = useState(false);
 
   const toggleMovies = () => {
-    setShowMovies((prevShowMovies) => !prevShowMovies)
-  }
+    setShowMovies((prevShowMovies) => !prevShowMovies);
+  };
 
   const toggleGenres = () => {
-    setShowGenres((prevShowGenres) => !prevShowGenres)
-  }
+    setShowGenres((prevShowGenres) => !prevShowGenres);
+  };
 
   return (
     <nav>
@@ -50,12 +50,16 @@ const Navbar = () => {
             </ul>
           )}
         </li>
+
+        <li>
+          <Link to="/tv-shows">TV Shows</Link>
+        </li>
         <li>
           <SearchBar />
         </li>
       </ul>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

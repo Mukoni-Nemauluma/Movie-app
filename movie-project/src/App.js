@@ -8,8 +8,10 @@ import Navbar from "./components/Navbar/Navbar";
 import Genre from "./components/Genre/Genre";
 import SingleActor from "./Pages/Actors/SingleActor";
 import Actors from "./Pages/Actors/Actors";
-import Movies from "./Pages/Movies";
-import SingleMovie from "./Pages/SingleMovie";
+import Movies from "./Pages/Movies/Movies";
+import SingleMovie from "./Pages/Movies/SingleMovie";
+import TVShows from "./Pages/TVShows/TvShows";
+import SingleTVShow from "./Pages/TVShows/SingleTVShow";
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
         <Route exact path="/actors" element={<Actors />} />
         <Route path="/movies/:category" element={<Movies />} />
         <Route path="/movie/:id" element={<SingleMovie />} />
+        <Route path="/tv-shows" element={<TVShows />} />
+        <Route path="/tv-show/:id" element={<SingleTVShow />} />
       </Routes>
       <Footer />
     </Router>
