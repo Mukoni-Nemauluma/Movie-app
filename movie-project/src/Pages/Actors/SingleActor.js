@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { fetchActorDetails, fetchMoviesByActor } from "../../util/API";
 
 const SingleActor = () => {
@@ -46,11 +46,25 @@ const SingleActor = () => {
       <p>Biography: {actor.biography}</p>
 
       <h3>Movies Participated In:</h3>
-      <ul>
+      <div className="movies-list">
         {movies.map((movie) => (
-          <li key={movie.id}>{movie.title}</li>
+          <div key={movie.id} className="movie-item">
+            <Link to={`/movie/${movie.id}`}>
+              <div className="movie-thumbnail">
+                {movie.poster_path ? (
+                  <img
+                    src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+                    alt={movie.title}
+                  />
+                ) : (
+                  <div className="no-image">No Image</div>
+                )}
+              </div>
+              <div className="movie-title">{movie.title}</div>
+            </Link>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
