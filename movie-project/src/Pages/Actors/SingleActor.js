@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { fetchActorDetails, fetchMoviesByActor } from "../../util/API";
+import "./SingleActor.css";
 
 const SingleActor = () => {
   const { actorId } = useParams();
@@ -33,33 +34,28 @@ const SingleActor = () => {
 
   return (
     <div className="actor-details">
-      <h2>{actor.name}</h2>
-      {actor.profile_path && (
-        <img
-          src={`https://image.tmdb.org/t/p/w200/${actor.profile_path}`}
-          alt={actor.name}
-        />
-      )}
-      <p>Gender: {actor.gender === 2 ? "Male" : "Female"}</p>
-      <p>Popularity: {actor.popularity}</p>
-      <p>Birthday: {actor.birthday}</p>
-      <p>Biography: {actor.biography}</p>
+      <img
+        src={`https://image.tmdb.org/t/p/w200/${actor.profile_path}`}
+        alt={actor.name}
+      />
+      <div className="actor-info">
+        <h2>{actor.name}</h2>
+        <p>Gender: {actor.gender === 2 ? "Male" : "Female"}</p>
+        <p>Popularity: {actor.popularity}</p>
+        <p>Birthday: {actor.birthday}</p>
+        <h3>Biography:</h3>
+        <p>{actor.biography}</p>
+      </div>
 
       <h3>Movies Participated In:</h3>
       <div className="movies-list">
         {movies.map((movie) => (
           <div key={movie.id} className="movie-item">
             <Link to={`/movie/${movie.id}`}>
-              <div className="movie-thumbnail">
-                {movie.poster_path ? (
-                  <img
-                    src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
-                    alt={movie.title}
-                  />
-                ) : (
-                  <div className="no-image">No Image</div>
-                )}
-              </div>
+              <img
+                src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+                alt={movie.title}
+              />
               <div className="movie-title">{movie.title}</div>
             </Link>
           </div>

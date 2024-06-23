@@ -34,6 +34,7 @@ const Actors = () => {
               src={`https://image.tmdb.org/t/p/w200/${actor.profile_path}`}
               alt={actor.name}
             />
+            <h2>{actor.name}</h2>
           </Link>
         </div>
       ))}
