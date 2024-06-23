@@ -34,7 +34,7 @@ const SearchBar = () => {
         navigate("/search-results", { state: { props: { results } } })
       }
     } catch (error) {
-      setError("Error searching. Please try again.") // Generic error message
+      setError("Error searching. Please try again.")
     } finally {
       setLoading(false)
     }
