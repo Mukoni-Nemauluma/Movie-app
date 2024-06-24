@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { fetchMovies } from '../../util/API';
+import Design from '../../Design'
 
 const Movies = () => {
   const { category } = useParams();

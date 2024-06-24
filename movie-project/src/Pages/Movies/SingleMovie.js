@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { fetchMovieDetails, fetchRelatedMovies, fetchCredits, fetchVideos } from '../../util/API';
+import Design from '../../Design';
 
 const SingleMovie = () => {
   const { id } = useParams();
@@ -47,23 +48,30 @@ const SingleMovie = () => {
   }
 
   return (
-    <div>
-      <h1>{movie.title}</h1>
-      {movie.poster_path ? (
-        <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
-      ) : (
-        <p>No poster available</p>
-      )}
-      <p><strong>Release Date:</strong> {movie.release_date}</p>
-      <p><strong>Runtime:</strong> {movie.runtime} minutes</p>
-      <p><strong>Language:</strong> {movie.original_language}</p>
-      <p><strong>Rating:</strong> {movie.vote_average} ({movie.vote_count} votes)</p>
-      <p><strong>Overview:</strong> {movie.overview}</p>
-      <p><strong>Director:</strong> {director}</p>
-      <p><strong>Production Company:</strong> {company.name}</p>
-      {company.logo_path && (
-        <img src={`https://image.tmdb.org/t/p/w200${company.logo_path}`} alt={company.name} />
-      )}
+    <div className='single-movie-container'>
+      <div
+        className="movie-details"
+        style={{
+          backgroundImage: `url(https://image.tmdb.org/t/p/original${movie.backdrop_path})`,
+        }}
+      >
+        <h1>{movie.title}</h1>
+        {movie.poster_path ? (
+          <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
+        ) : (
+          <p>No poster available</p>
+        )}
+        <p><strong>Release Date:</strong> {movie.release_date}</p>
+        <p><strong>Runtime:</strong> {movie.runtime} minutes</p>
+        <p><strong>Language:</strong> {movie.original_language}</p>
+        <p><strong>Rating:</strong> {movie.vote_average} ({movie.vote_count} votes)</p>
+        <p><strong>Overview:</strong> {movie.overview}</p>
+        <p><strong>Director:</strong> {director}</p>
+        <p><strong>Production Company:</strong> {company.name}</p>
+        {company.logo_path && (
+          <img src={`https://image.tmdb.org/t/p/w200${company.logo_path}`} alt={company.name} />
+        )}
+      </div>
 
       <h2>Cast</h2>
       <ul>
