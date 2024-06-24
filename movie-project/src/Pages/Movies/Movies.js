@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { fetchMovies } from '../../util/API';
-import Design from '../../Design'
+import './Design.css';
+import useScrollToTop from "../../ScrollToTop";
 
 const Movies = () => {
+  useScrollToTop();
   const { category } = useParams();
   const [movies, setMovies] = useState([]);
 

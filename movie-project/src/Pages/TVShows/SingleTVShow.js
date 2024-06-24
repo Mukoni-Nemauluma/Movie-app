@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { fetchTVShowDetails, fetchRelatedTVShows, fetchTVCredits, fetchTVVideos } from '../../util/API';
+import useScrollToTop from "../../ScrollToTop";
 
 const SingleTVShow = () => {
+  useScrollToTop();
   const { id } = useParams();
   const [tvShow, setTVShow] = useState(null);
   const [relatedTVShows, setRelatedTVShows] = useState([]);
@@ -76,8 +78,8 @@ const SingleTVShow = () => {
               ) : (
                 <p>No image available</p>
               )}
-              <p>{actor.name}</p>
-              <p><strong>as {actor.character}</strong></p>
+              <h3><strong>{actor.name}</strong></h3>
+              <p> Role: {actor.character}</p>
             </Link>
           </li>
         ))}
