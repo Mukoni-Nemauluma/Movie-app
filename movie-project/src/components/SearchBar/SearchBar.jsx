@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { searchMovies, searchActors, searchTVShows } from "../../util/API"
+import "../../SearchResults.css"
 
 const SearchBar = () => {
   const [query, setQuery] = useState("")

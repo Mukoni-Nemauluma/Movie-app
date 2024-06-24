@@ -12,7 +12,7 @@
   width: 100%;
   position: relative;
   top: 100px;
-  height: 740px;
+  height: 800px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -63,12 +63,15 @@
   position: relative;
   float: right;
   padding-right: 1em;
+  background: none;
 }
 
 .movie-details .movie-content .movie-title {
   color: #ffffff;
-  margin-bottom: 0.25em;
+  margin-bottom: 10px;
   opacity: 0.75;
+  background: none;
+  font-size: 16px;
 }
 
 .movie-details .movie-content .movie-info {
@@ -80,6 +83,8 @@
   margin: 0;
   font-weight: 700;
   opacity: 0.5;
+  background: none;
+  font-size: 18px;
 }
 
 .movie-details .movie-content .movie-header {
@@ -91,6 +96,7 @@
   opacity: 0.84;
   margin-bottom: 2em;
   margin-top: 60px;
+  background: none;
 }
 
 .cast-position {
@@ -127,9 +133,11 @@
 }
 
 .production-company {
+  bottom: 20px;
+  right: 100px;
   margin-top: 2em;
-  display: flex;
-  align-items: center;
+  margin-left: 50px;
+  background: none;
 }
 
 .production-company p {
@@ -168,7 +176,7 @@
 
 .related-movies-container {
   position: relative;
-  bottom: 150px;
+  bottom: 420px;
 }
 
 .related-movies-grid {
@@ -179,8 +187,9 @@
 
 .related-movie-card {
   width: calc(10% - 1em);
-  max-width: 200px;
+  max-width: 400px;
   text-align: center;
+  margin-right: 50px;
 }
 
 .related-movie-card img {
@@ -199,7 +208,7 @@
 .trailer-container {
   margin-top: 1em;
   position: relative;
-  bottom: 750px;
+  bottom: 850px;
   left: 750px;
   max-width: 300px;
 }

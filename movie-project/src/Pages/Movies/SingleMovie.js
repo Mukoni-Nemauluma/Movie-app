@@ -86,9 +86,6 @@ const SingleMovie = () => {
             <p>{company.name}</p>
           </div>
         </div>
-        <div className="movie-share">
-          <button className="btn btn-outline">Watch Trailer</button>
-        </div>
       </div>
 
       <div className="cast-position">
