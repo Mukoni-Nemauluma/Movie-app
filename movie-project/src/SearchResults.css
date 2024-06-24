@@ -57,3 +57,7 @@
 .movie-card-style:hover .movie-title-style {
   opacity: 1;
 }
+.no-results {
+  background: black;
+  height: 40vh;
+}

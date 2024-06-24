@@ -65,7 +65,6 @@ const Home = () => {
           <p>
             Discover a world of entertainment. Watch your favorite movies now.
           </p>
-          <button className="button">Explore</button>
         </div>
       </section>
 
