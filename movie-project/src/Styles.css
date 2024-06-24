@@ -76,6 +76,7 @@
   display: flex;
   flex-direction: column;
   padding: 20px;
+  margin-top: 60px;
 }
 
 .actor-info {
@@ -87,6 +88,9 @@
   margin-right: 20px;
   border-radius: 8px;
   max-width: 200px;
+}
+.about-section {
+  background: none;
 }
 
 .actor-bio {
