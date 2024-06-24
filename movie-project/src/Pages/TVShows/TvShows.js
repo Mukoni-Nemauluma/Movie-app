@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { fetchTVShows } from '../../util/API';
 import useScrollToTop from '../../ScrollToTop';
+import '../../Design.css';
 
 const TVShows = () => {
   useScrollToTop();
@@ -21,12 +22,12 @@ const TVShows = () => {
   }, []);
 
   return (
-    <div>
+    <div className="movies-page">
       <h2>TV Shows</h2>
-      <div className="tvshows-grid">
+      <div className="movies-grid">
         {tvShows.map((tvShow) => (
-          <div key={tvShow.id} className="tvshow-card">
-            <Link to={`/tv-show/${tvShow.id}`}>
+          <div key={tvShow.id} className="movie-card">
+            <Link to={`/tv/${tvShow.id}`}>
               <img
                 src={`https://image.tmdb.org/t/p/w500${tvShow.poster_path}`}
                 alt={tvShow.name}
