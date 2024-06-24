@@ -4,6 +4,7 @@ import { fetchTVShowDetails, fetchRelatedTVShows, fetchTVCredits, fetchTVVideos 
 import useScrollToTop from "../../ScrollToTop";
 
 const SingleTVShow = () => {
+  useScrollToTop();
   const { id } = useParams();
   const [tvShow, setTVShow] = useState(null);
   const [relatedTVShows, setRelatedTVShows] = useState([]);
