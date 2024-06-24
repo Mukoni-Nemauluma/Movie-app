@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { fetchTVShowDetails, fetchRelatedTVShows, fetchTVCredits, fetchTVVideos } from '../../util/API';
+import useScrollToTop from "../../ScrollToTop";
 
 const SingleTVShow = () => {
+  useScrollToTop();
   const { id } = useParams();
   const [tvShow, setTVShow] = useState(null);
   const [relatedTVShows, setRelatedTVShows] = useState([]);

@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { fetchMovieDetails, fetchRelatedMovies, fetchCredits, fetchVideos } from '../../util/API';
+import useScrollToTop from "../../ScrollToTop";
 
 const SingleMovie = () => {
+  useScrollToTop();
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
   const [relatedMovies, setRelatedMovies] = useState([]);
