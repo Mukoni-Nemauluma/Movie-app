@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from "react"
 import { useParams, Link } from "react-router-dom"
 import { fetchMoviesByGenre } from "../../util/API"
@@ -10,13 +11,33 @@ const Genre = () => {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   const [genreName, setGenreName] = useState("")
+=======
+import React, { useState, useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
+import { fetchMoviesByGenre, fetchGenreName } from "../../util/API";
+
+const Genre = () => {
+  const { genreId } = useParams();
+  const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [genreName, setGenreName] = useState("");
+>>>>>>> a3148e083480876a369ee9c5ca68b5cabd08c61f
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+<<<<<<< HEAD
         const response = await fetchMoviesByGenre(genreId)
         setMovies(response.results)
         setGenreName(mapGenreIdToName(genreId))
+=======
+        const response = await fetchMoviesByGenre(genreId);
+        setMovies(response.results);
+        
+        const genreName = await fetchGenreName(genreId);
+        setGenreName(genreName);
+>>>>>>> a3148e083480876a369ee9c5ca68b5cabd08c61f
       } catch (error) {
         setError(error.message)
       } finally {
@@ -77,6 +98,7 @@ const Genre = () => {
 
   return (
     <div className="genres-page">
+<<<<<<< HEAD
       <section className="design-section">
         <Design />
       </section>
@@ -87,6 +109,14 @@ const Genre = () => {
           {movies.map((movie) => (
             <div key={movie.id} className="movie-card-style">
               <Link to={`/movie/${movie.id}`}>
+=======
+      <h1>{genreName} Movies</h1>
+      <div className="movies-list">
+        {movies.map((movie) => (
+          <div key={movie.id} className="movie-card">
+            <Link to={`/movie/${movie.id}`}>
+              {movie.poster_path ? (
+>>>>>>> a3148e083480876a369ee9c5ca68b5cabd08c61f
                 <img
                   src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}
                   alt={movie.title}

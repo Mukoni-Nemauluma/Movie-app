@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react"
-import { Link } from "react-router-dom"
-import { fetchPopularActors } from "../../util/API"
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { fetchPopularActors } from "../../util/API";
+import useScrollToTop from "../../ScrollToTop";
 
 const Actors = () => {
+  useScrollToTop();
   const [actors, setActors] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -34,6 +36,7 @@ const Actors = () => {
               src={`https://image.tmdb.org/t/p/w200/${actor.profile_path}`}
               alt={actor.name}
             />
+            <h2>{actor.name}</h2>
           </Link>
         </div>
       ))}

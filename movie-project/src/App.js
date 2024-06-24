@@ -17,7 +17,7 @@ import SearchResults from "./components/SearchBar/SearchResults"
 import NoResults from "./components/SearchBar/NoResults"
 
 function App() {
-  useScrollToTop()
+  useScrollToTop();
   return (
     <Router>
       <Navbar />
@@ -38,4 +38,4 @@ function App() {
   )
 }
 
-export default App
+export default App;

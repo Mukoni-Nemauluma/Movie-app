@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import { fetchMovies } from "../../util/API"
@@ -7,6 +8,17 @@ import Design from "../../components/Design/Design"
 const Movies = () => {
   const { category } = useParams()
   const [movies, setMovies] = useState([])
+=======
+import React, { useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { fetchMovies } from '../../util/API';
+import useScrollToTop from "../../ScrollToTop";
+
+const Movies = () => {
+  useScrollToTop();
+  const { category } = useParams();
+  const [movies, setMovies] = useState([]);
+>>>>>>> a3148e083480876a369ee9c5ca68b5cabd08c61f
 
   useEffect(() => {
     const fetchCategoryMovies = async () => {

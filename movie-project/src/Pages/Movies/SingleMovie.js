@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import {
@@ -17,6 +18,22 @@ const SingleMovie = () => {
   const [videos, setVideos] = useState([])
   const [director, setDirector] = useState("")
   const [company, setCompany] = useState({ name: "", logo_path: "" })
+=======
+import React, { useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { fetchMovieDetails, fetchRelatedMovies, fetchCredits, fetchVideos } from '../../util/API';
+import useScrollToTop from "../../ScrollToTop";
+
+const SingleMovie = () => {
+  useScrollToTop();
+  const { id } = useParams();
+  const [movie, setMovie] = useState(null);
+  const [relatedMovies, setRelatedMovies] = useState([]);
+  const [credits, setCredits] = useState([]);
+  const [videos, setVideos] = useState([]);
+  const [director, setDirector] = useState("");
+  const [company, setCompany] = useState({ name: "", logo_path: "" });
+>>>>>>> a3148e083480876a369ee9c5ca68b5cabd08c61f
 
   useEffect(() => {
     const fetchDetails = async () => {
@@ -88,6 +105,7 @@ const SingleMovie = () => {
         </div>
       </div>
 
+<<<<<<< HEAD
       <div className="cast-position">
         <h2>Cast</h2>
         <ul className="cast-list">
@@ -111,6 +129,24 @@ const SingleMovie = () => {
           ))}
         </ul>
       </div>
+=======
+      <h2>Cast</h2>
+      <ul>
+        {credits.map((actor) => (
+          <li key={actor.id}>
+            <Link to={`/actors/${actor.id}`}>
+              {actor.profile_path ? (
+                <img src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`} alt={actor.name} />
+              ) : (
+                <p></p>
+              )}
+              <h3><strong>{actor.name}</strong></h3>
+              <p>Role: {actor.character}</p>
+            </Link>
+          </li>
+        ))}
+      </ul>
+>>>>>>> a3148e083480876a369ee9c5ca68b5cabd08c61f
 
       {videos.length > 0 && (
         <div className="trailer-container">
