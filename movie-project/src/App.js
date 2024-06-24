@@ -16,7 +16,7 @@ import TVShows from "./Pages/TVShows/TvShows";
 import SingleTVShow from "./Pages/TVShows/SingleTVShow";
 
 function App() {
-  useScrollToTop()
+  useScrollToTop();
   return (
     <Router>
       <Navbar />
