@@ -74,13 +74,13 @@
 }
 
 .movie-section h1 {
-  font-size: 2.4rem;
-  animation: colorChange 4s linear infinite;
+  font-size: 28px;
+  margin-bottom: 30px;
 }
 
 .movies-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  grid-template-columns: repeat(10, 1fr);
   gap: 20px;
   justify-items: center;
   align-items: center;
@@ -93,7 +93,7 @@
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   transition: transform 0.2s ease-in-out;
-  width: 400px;
+  width: 100px;
 }
 
 .movie-card:hover {
@@ -119,52 +119,6 @@
   text-align: center;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-}
-
-@media (max-width: 1200px) {
-  .movies-grid {
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  }
-}
-
-@media (max-width: 992px) {
-  .movies-grid {
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  }
-}
-
-@media (max-width: 768px) {
-  .movies-grid {
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    gap: 15px;
-    padding: 30px;
-  }
-}
-
-@media (max-width: 480px) {
-  .movies-grid {
-    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-    gap: 10px;
-    padding: 20px;
-  }
-}
-
-@keyframes colorChange {
-  0% {
-    color: blue;
-  }
-  25% {
-    color: red;
-  }
-  50% {
-    color: yellow;
-  }
-  75% {
-    color: green;
-  }
-  100% {
-    color: blue;
-  }
 }
 
 .button {

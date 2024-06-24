@@ -2,10 +2,10 @@
   position: relative;
   padding: 20px;
   margin: 0 auto;
-  background-color: #02090f;
   color: #cfd6e1;
   font-family: "Montserrat", helvetica, arial, sans-serif;
   width: 80%;
+  background: none;
 }
 
 .movie-details {
@@ -96,7 +96,9 @@
 .cast-position {
   position: relative;
   bottom: 350px;
-  left: 50px;
+  left: 60px;
+  background: none;
+  width: 200px;
 }
 .cast-list {
   list-style: none;
@@ -104,7 +106,9 @@
   display: flex;
   position: relative;
   right: -50px;
-  bottom: 340px;
+  bottom: 100px;
+  top: 10px;
+  background: none;
 }
 .related-title {
   position: relative;
