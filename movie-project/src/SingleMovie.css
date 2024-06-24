@@ -176,7 +176,8 @@
 
 .related-movies-container {
   position: relative;
-  bottom: 420px;
+  bottom: 300px;
+  max-height: 250px;
 }
 
 .related-movies-grid {
