@@ -347,7 +347,6 @@ ul {
   box-shadow: 0 8px 10px rgba(0, 0, 0, 0.4);
 }
 
-/* Footer Section */
 .footer-section {
   color: #fff;
   padding: 50px 0;
@@ -504,6 +503,4 @@ ul {
 .logo img {
   width: 40px;
   height: 40px;
-}
-.grid {
 }
