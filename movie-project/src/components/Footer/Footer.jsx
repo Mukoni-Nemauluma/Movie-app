@@ -1,13 +1,5 @@
 import React from "react"
-import {
-  FaFacebookF,
-  FaTwitter,
-  FaGooglePlusG,
-  FaMapMarkerAlt,
-  FaPhone,
-  FaEnvelopeOpen,
-  FaTelegramPlane,
-} from "react-icons/fa"
+import { FaLinkedin, FaGithub, FaTelegramPlane } from "react-icons/fa"
 import "../../App.css"
 
 const Footer = () => {
@@ -30,25 +22,18 @@ const Footer = () => {
                       <p>Nonhlanhla Mazibuko</p>
                       <div className="social-icons">
                         <a
-                          href="[GitHub Link]"
+                          href="https://github.com/Mukoni-Nemauluma"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <FaFacebookF className="social-icon" />
+                          <FaGithub className="social-icon" />
                         </a>
                         <a
-                          href="[LinkedIn Link]"
+                          href="https://www.linkedin.com/in/konanani-charity-nemauluma-600267147/" //replace with your socials
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <FaTwitter className="social-icon" />
-                        </a>
-                        <a
-                          href="[Google Plus Link]"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <FaGooglePlusG className="social-icon" />
+                          <FaLinkedin className="social-icon" />
                         </a>
                       </div>
                     </div>
@@ -58,25 +43,18 @@ const Footer = () => {
                       <p>Konanani Nemauluma</p>
                       <div className="social-icons">
                         <a
-                          href="[GitHub Link]"
+                          href="https://github.com/Mukoni-Nemauluma"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <FaFacebookF className="social-icon" />
+                          <FaGithub className="social-icon" />
                         </a>
                         <a
-                          href="[LinkedIn Link]"
+                          href="https://www.linkedin.com/in/konanani-charity-nemauluma-600267147/"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <FaTwitter className="social-icon" />
-                        </a>
-                        <a
-                          href="[Google Plus Link]"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <FaGooglePlusG className="social-icon" />
+                          <FaLinkedin className="social-icon" />
                         </a>
                       </div>
                     </div>
@@ -96,8 +74,6 @@ const Footer = () => {
                 </form>
               </div>
             </section>
-
-            {/* Social Media Handles Section */}
           </div>
         </div>
 
