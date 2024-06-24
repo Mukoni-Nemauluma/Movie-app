@@ -75,8 +75,8 @@ const SingleMovie = () => {
               ) : (
                 <p></p>
               )}
-              <p><strong>{actor.name}</strong></p>
-              <h3>Role: {actor.character}</h3>
+              <h3><strong>{actor.name}</strong></h3>
+              <p>Role: {actor.character}</p>
             </Link>
           </li>
         ))}
