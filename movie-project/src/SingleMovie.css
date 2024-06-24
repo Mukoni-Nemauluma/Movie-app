@@ -105,7 +105,7 @@
   padding: 0;
   display: flex;
   position: relative;
-  right: -50px;
+  left: -40px;
   bottom: 100px;
   top: 10px;
   background: none;
@@ -198,12 +198,16 @@
 
 .trailer-container {
   margin-top: 1em;
+  position: relative;
+  bottom: 750px;
+  left: 750px;
+  max-width: 300px;
 }
 
 .trailer-container iframe {
   display: block;
-  max-width: 80%;
-  max-height: 210px;
+  max-width: 400px;
+  max-height: 250px;
 }
 .movie-title {
   color: #000;
