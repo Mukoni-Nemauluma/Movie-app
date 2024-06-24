@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
 import GenreDropdown from "../Genre/GenreDropdown";
+import '../../App.css';
+import './Navbar.css';
 
 const Navbar = () => {
   const [showMovies, setShowMovies] = useState(false);
@@ -16,8 +18,11 @@ const Navbar = () => {
   };
 
   return (
-    <nav>
-      <ul>
+    <nav className="navbar">
+      <div className="logo">
+        <span className="logo-text">MovieReel</span>
+      </div>
+      <ul className="navbar-menu">
         <li>
           <Link to="/">Home</Link>
         </li>
@@ -50,7 +55,6 @@ const Navbar = () => {
             </ul>
           )}
         </li>
-
         <li>
           <Link to="/tv-shows">TV Shows</Link>
         </li>
