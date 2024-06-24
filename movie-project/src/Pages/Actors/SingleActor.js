@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { Link, useParams } from "react-router-dom"
 import { fetchActorDetails, fetchMoviesByActor } from "../../util/API"
-import "../../Styles.css"
 
 const SingleActor = () => {
   const { actorId } = useParams()
