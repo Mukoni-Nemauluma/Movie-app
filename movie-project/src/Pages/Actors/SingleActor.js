@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { fetchActorDetails, fetchMoviesByActor } from "../../util/API";
 import "./SingleActor.css";
-import useScrollToTop from "../../ScrollToTop"
+import useScrollToTop from "../../ScrollToTop";
 
 const SingleActor = () => {
   useScrollToTop();
@@ -37,39 +37,43 @@ const SingleActor = () => {
   return (
     <div className="actor-details">
       <div className="content">
-        <div className="biography">
-          <div className="actor-main">
-            <img
-              src={`https://image.tmdb.org/t/p/w200/${actor.profile_path}`}
-              alt={actor.name}
-            />
-            <div className="actor-info">
-              <h2>{actor.name}</h2>
-              <div className="about-section">
-                <p>Gender: {actor.gender === 2 ? "Male" : "Female"}</p>
-                <p>Popularity: {actor.popularity}</p>
-                <p>Birthday: {actor.birthday}</p>
-              </div>
-              <h3>Biography:</h3>
-              <p>{actor.biography}</p>
-            </div>
+        <div className="actor-main">
+          <img
+            className="actor-picture"
+            src={`https://image.tmdb.org/t/p/w200/${actor.profile_path}`}
+            alt={actor.name}
+          />
+          <div className="about-section">
+            <h2>{actor.name}</h2>
+            <p>Gender: {actor.gender === 2 ? "Male" : "Female"}</p>
+            <p>Popularity: {actor.popularity}</p>
+            <p>Birthday: {actor.birthday}</p>
+            <hr />
+            <h3>Biography:</h3>
+            <p>{actor.biography}</p>
           </div>
         </div>
-        <div className="movies-header">
-          <h3>Movies Participated In:</h3>
-        </div>
-        <div className="movies-list">
-          {movies.map((movie) => (
-            <div key={movie.id} className="movie-item">
-              <Link to={`/movie/${movie.id}`}>
-                <img
-                  src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
-                  alt={movie.title}
-                />
-                <div className="movie-title">{movie.title}</div>
-              </Link>
-            </div>
-          ))}
+
+        <div className="movies-section">
+          <h3 className="genre-title">Movies Participated In:</h3>
+          <div className="movies-list">
+            {movies.map((movie) => (
+              <div key={movie.id} className="movie-item">
+                <Link to={`/movie/${movie.id}`}>
+                  <div className="movie-thumbnail">
+                    <img
+                      src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+                      alt={movie.title}
+                    />
+                    {!movie.poster_path && (
+                      <div className="no-image">No Image Available</div>
+                    )}
+                  </div>
+                  <div className="movie-title">{movie.title}</div>
+                </Link>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
