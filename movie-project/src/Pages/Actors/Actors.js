@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react"
-import { Link } from "react-router-dom"
-import { fetchPopularActors } from "../../util/API"
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { fetchPopularActors } from "../../util/API";
+import useScrollToTop from "../../ScrollToTop";
 
 const Actors = () => {
+  useScrollToTop();
   const [actors, setActors] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
