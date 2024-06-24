@@ -76,8 +76,8 @@ const SingleTVShow = () => {
               ) : (
                 <p>No image available</p>
               )}
-              <p>{actor.name}</p>
-              <p><strong>as {actor.character}</strong></p>
+              <h3><strong>{actor.name}</strong></h3>
+              <p> Role: {actor.character}</p>
             </Link>
           </li>
         ))}

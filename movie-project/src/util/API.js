@@ -49,6 +49,20 @@ export const fetchUpcomingMovies = async () => {
   return fetchAPI(`/movie/upcoming`);
 };
 
+export const fetchGenreName = async (genreId) => {
+  try {
+    const response = await fetchAPI(`/genre/movie/list`);
+    const genres = response.genres;
+    const genre = genres.find((genre) => genre.id === parseInt(genreId));
+    if (!genre) {
+      throw new Error(`Genre with id ${genreId} not found`);
+    }
+    return genre.name;
+  } catch (error) {
+    throw new Error(`Failed to fetch genre name: ${error.message}`);
+  }
+};
+
 export const fetchMoviesByGenre = async (genreId) => {
   return fetchAPI(`/discover/movie`, { with_genres: genreId });
 };

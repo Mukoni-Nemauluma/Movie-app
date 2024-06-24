@@ -73,10 +73,10 @@ const SingleMovie = () => {
               {actor.profile_path ? (
                 <img src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`} alt={actor.name} />
               ) : (
-                <p>No image available</p>
+                <p></p>
               )}
-              <p>{actor.name}</p>
-              <p><strong>as {actor.character}</strong></p>
+              <h3><strong>{actor.name}</strong></h3>
+              <p>Role: {actor.character}</p>
             </Link>
           </li>
         ))}

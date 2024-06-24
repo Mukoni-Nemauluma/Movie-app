@@ -1,18 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import { fetchMoviesByGenre } from "../../util/API";
+import { fetchMoviesByGenre, fetchGenreName } from "../../util/API";
 
 const Genre = () => {
   const { genreId } = useParams();
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [genreName, setGenreName] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetchMoviesByGenre(genreId);
         setMovies(response.results);
+        
+        const genreName = await fetchGenreName(genreId);
+        setGenreName(genreName);
       } catch (error) {
         setError(error.message);
       } finally {
@@ -28,7 +32,7 @@ const Genre = () => {
 
   return (
     <div className="genres-page">
-      <h1>Genre Movies</h1>
+      <h1>{genreName} Movies</h1>
       <div className="movies-list">
         {movies.map((movie) => (
           <div key={movie.id} className="movie-card">
