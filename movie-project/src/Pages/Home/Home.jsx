@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 import {
   fetchMoviesByCategory,
   fetchPopularMovies,
@@ -22,8 +23,8 @@ const Home = () => {
         const latestResponse = await fetchMoviesByCategory("now_playing")
         const popularResponse = await fetchPopularMovies()
         const topRatedResponse = await fetchTopRatedMovies()
-        const comedyResponse = await fetchMoviesByGenre(35) // Genre ID for Comedy
-        const crimeResponse = await fetchMoviesByGenre(80) // Genre ID for Crime
+        const comedyResponse = await fetchMoviesByGenre(35)
+        const crimeResponse = await fetchMoviesByGenre(80)
 
         setLatestMovies(latestResponse.results)
         setPopularMovies(popularResponse.results)
@@ -74,10 +75,12 @@ const Home = () => {
           <div className="movies-grid">
             {latestMovies.map((movie) => (
               <div key={movie.id} className="movie-card">
-                <img
-                  src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
-                  alt={movie.title}
-                />
+                <Link to={`/movie/${movie.id}`}>
+                  <img
+                    src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+                    alt={movie.title}
+                  />
+                </Link>
               </div>
             ))}
           </div>
@@ -90,10 +93,12 @@ const Home = () => {
           <div className="movies-grid">
             {popularMovies.map((movie) => (
               <div key={movie.id} className="movie-card">
-                <img
-                  src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
-                  alt={movie.title}
-                />
+                <Link to={`/movie/${movie.id}`}>
+                  <img
+                    src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+                    alt={movie.title}
+                  />
+                </Link>
               </div>
             ))}
           </div>
@@ -106,10 +111,12 @@ const Home = () => {
           <div className="movies-grid">
             {topRatedMovies.map((movie) => (
               <div key={movie.id} className="movie-card">
-                <img
-                  src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
-                  alt={movie.title}
-                />
+                <Link to={`/movie/${movie.id}`}>
+                  <img
+                    src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+                    alt={movie.title}
+                  />
+                </Link>
               </div>
             ))}
           </div>
@@ -122,10 +129,12 @@ const Home = () => {
           <div className="movies-grid">
             {comedyMovies.map((movie) => (
               <div key={movie.id} className="movie-card">
-                <img
-                  src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
-                  alt={movie.title}
-                />
+                <Link to={`/movie/${movie.id}`}>
+                  <img
+                    src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+                    alt={movie.title}
+                  />
+                </Link>
               </div>
             ))}
           </div>
