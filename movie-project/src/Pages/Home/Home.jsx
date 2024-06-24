@@ -1,48 +1,47 @@
-import React, { useState, useEffect } from "react"
-import { Link } from "react-router-dom"
-import {
-  fetchMoviesByCategory,
-  fetchPopularMovies,
-  fetchTopRatedMovies,
-  fetchMoviesByGenre,
-} from "../../util/API"
-import "../../Home.css"
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { 
+  fetchMoviesByCategory, 
+  fetchMoviesByGenre, 
+  fetchTopRatedMovies, 
+  fetchPopularMovies 
+} from "../../util/API";
 
 const Home = () => {
-  const [latestMovies, setLatestMovies] = useState([])
-  const [popularMovies, setPopularMovies] = useState([])
-  const [topRatedMovies, setTopRatedMovies] = useState([])
-  const [comedyMovies, setComedyMovies] = useState([])
-  const [crimeMovies, setCrimeMovies] = useState([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
+  const [latestMovies, setLatestMovies] = useState([]);
+  const [popularMovies, setPopularMovies] = useState([]);
+  const [topRatedMovies, setTopRatedMovies] = useState([]);
+  const [comedyMovies, setComedyMovies] = useState([]);
+  const [crimeMovies, setCrimeMovies] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchLatestMovies = async () => {
       try {
-        const latestResponse = await fetchMoviesByCategory("now_playing")
-        const popularResponse = await fetchPopularMovies()
-        const topRatedResponse = await fetchTopRatedMovies()
-        const comedyResponse = await fetchMoviesByGenre(35)
-        const crimeResponse = await fetchMoviesByGenre(80)
+        const latestResponse = await fetchMoviesByCategory("now_playing");
+        const popularResponse = await fetchPopularMovies();
+        const topRatedResponse = await fetchTopRatedMovies();
+        const comedyResponse = await fetchMoviesByGenre(35);
+        const crimeResponse = await fetchMoviesByGenre(80);
 
-        setLatestMovies(latestResponse.results)
-        setPopularMovies(popularResponse.results)
-        setTopRatedMovies(topRatedResponse.results)
-        setComedyMovies(comedyResponse.results)
-        setCrimeMovies(crimeResponse.results)
-        setLoading(false)
+        setLatestMovies(latestResponse.results);
+        setPopularMovies(popularResponse.results);
+        setTopRatedMovies(topRatedResponse.results);
+        setComedyMovies(comedyResponse.results);
+        setCrimeMovies(crimeResponse.results);
+        setLoading(false);
       } catch (error) {
-        setError(error.message)
-        setLoading(false)
+        setError(error.message);
+        setLoading(false);
       }
-    }
+    };
 
-    fetchData()
-  }, [])
+    fetchLatestMovies();
+  }, []);
 
-  if (loading) return <div>Loading...</div>
-  if (error) return <div>Error: {error}</div>
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
 
   return (
     <div>
@@ -141,7 +140,7 @@ const Home = () => {
         </div>
       </section>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
