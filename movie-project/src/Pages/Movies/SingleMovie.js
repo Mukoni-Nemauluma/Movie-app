@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { fetchMovieDetails, fetchRelatedMovies, fetchCredits, fetchVideos } from '../../util/API';
-import '../../Design.css';
 import useScrollToTop from "../../ScrollToTop";
 
 const SingleMovie = () => {

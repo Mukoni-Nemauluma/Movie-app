@@ -6,7 +6,6 @@ import {
   fetchTopRatedMovies, 
   fetchPopularMovies 
 } from "../../util/API";
-import './Home.css'
 
 const Home = () => {
   const [latestMovies, setLatestMovies] = useState([]);

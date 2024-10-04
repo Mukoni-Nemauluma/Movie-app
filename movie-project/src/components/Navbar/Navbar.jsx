@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
 import GenreDropdown from "../Genre/GenreDropdown";
-import '../../App.css';
-import './Navbar.css';
 
 const Navbar = () => {
   const [showMovies, setShowMovies] = useState(false);

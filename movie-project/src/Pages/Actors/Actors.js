@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { fetchPopularActors } from "../../util/API";
 import useScrollToTop from "../../ScrollToTop";
-import '../../Design.css';
 
 const Actors = () => {
   useScrollToTop();

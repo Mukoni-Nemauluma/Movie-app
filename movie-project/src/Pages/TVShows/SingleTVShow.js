@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { fetchTVShowDetails, fetchRelatedTVShows, fetchTVCredits, fetchTVVideos } from '../../util/API';
-import '../../Design.css';
 import useScrollToTop from "../../ScrollToTop";
 
 const SingleTVShow = () => {

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { fetchActorDetails, fetchMoviesByActor } from "../../util/API";
-import "./SingleActor.css";
 import useScrollToTop from "../../ScrollToTop";
 
 const SingleActor = () => {
