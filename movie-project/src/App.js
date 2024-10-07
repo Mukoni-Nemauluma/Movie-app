@@ -1,22 +1,22 @@
 import React from "react"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import './App.css';
 import useScrollToTop from "./ScrollToTop"
 
-import Home from "./Pages/Home/Home";
-import Footer from "./components/Footer/Footer";
-import SearchResults from "./components/SearchBar/SearchResults";
-import Navbar from "./components/Navbar/Navbar";
-import Genre from "./components/Genre/Genre";
-import SingleActor from "./Pages/Actors/SingleActor";
-import Actors from "./Pages/Actors/Actors";
-import Movies from "./Pages/Movies/Movies";
-import SingleMovie from "./Pages/Movies/SingleMovie";
-import TVShows from "./Pages/TVShows/TvShows";
-import SingleTVShow from "./Pages/TVShows/SingleTVShow";
+import Home from "./Pages/Home/Home"
+import Footer from "./components/Footer/Footer"
+import SearchResults from "./components/SearchBar/SearchResults"
+import Navbar from "./components/Navbar/Navbar"
+import Genre from "./components/Genre/Genre"
+import SingleActor from "./Pages/Actors/SingleActor"
+import Actors from "./Pages/Actors/Actors"
+import Movies from "./Pages/Movies/Movies"
+import SingleMovie from "./Pages/Movies/SingleMovie"
+import TVShows from "./Pages/TVShows/TvShows"
+import SingleTVShow from "./Pages/TVShows/SingleTVShow"
+import "./App.css"
 
 function App() {
-  useScrollToTop();
+  useScrollToTop()
   return (
     <Router>
       <Navbar />
@@ -36,4 +36,4 @@ function App() {
   )
 }
 
-export default App;
+export default App
