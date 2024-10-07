@@ -1,67 +1,39 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import SearchBar from "../SearchBar/SearchBar";
-import GenreDropdown from "../Genre/GenreDropdown";
+import React, { useState } from "react"
+import { Link } from "react-router-dom"
+import SearchBar from "../SearchBar/SearchBar"
+import GenreDropdown from "../Genre/GenreDropdown"
 
 const Navbar = () => {
-  const [showMovies, setShowMovies] = useState(false);
-  const [showGenres, setShowGenres] = useState(false);
-
-  const toggleMovies = () => {
-    setShowMovies((prevShowMovies) => !prevShowMovies);
-  };
+  const [showGenres, setShowGenres] = useState(false)
 
   const toggleGenres = () => {
-    setShowGenres((prevShowGenres) => !prevShowGenres);
-  };
+    setShowGenres((prevShowGenres) => !prevShowGenres)
+  }
 
   return (
-    <nav className="navbar">
+    <nav className="bg-gray-900 text-white p-4 flex justify-between items-center">
       <div className="logo">
-        <span className="logo-text">MovieReel</span>
+        <span className="text-2xl font-bold">MovieReel</span>
       </div>
-      <ul className="navbar-menu">
+      <ul className="flex space-x-4">
         <li>
           <Link to="/">Home</Link>
         </li>
         <li>
-          <span onClick={toggleGenres}>Genres</span>
+          <span onClick={toggleGenres} className="cursor-pointer">
+            Genres
+          </span>
           {showGenres && <GenreDropdown />}
         </li>
         <li>
           <Link to="/actors">Actors</Link>
         </li>
         <li>
-          <span onClick={toggleMovies}>Movies</span>
-          {showMovies && (
-            <ul className="dropdown">
-              <li>
-                <Link to="/movies/top-rated">Top Rated</Link>
-              </li>
-              <li>
-                <Link to="/movies/popular">Popular</Link>
-              </li>
-              <li>
-                <Link to="/movies/now-playing">Now Playing</Link>
-              </li>
-              <li>
-                <Link to="/movies/upcoming">Upcoming</Link>
-              </li>
-              <li>
-                <Link to="/movies/latest">Latest</Link>
-              </li>
-            </ul>
-          )}
-        </li>
-        <li>
-          <Link to="/tv-shows">TV Shows</Link>
-        </li>
-        <li>
           <SearchBar />
         </li>
       </ul>
     </nav>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

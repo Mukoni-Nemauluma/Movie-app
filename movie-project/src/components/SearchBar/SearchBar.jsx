@@ -1,66 +1,62 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { searchMovies, searchActors, searchTVShows } from "../../util/API";
+import React, { useState } from "react"
+import { useNavigate } from "react-router-dom"
+import { searchMovies, searchActors, searchTVShows } from "../../util/API"
 
 const SearchBar = () => {
-  const [query, setQuery] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-
-  const navigate = useNavigate();
+  const [query, setQuery] = useState("")
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState("")
+  const navigate = useNavigate()
 
   const handleSearch = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setError("");
+    e.preventDefault()
+    setLoading(true)
+    setError("")
 
     try {
-      const movieResults = await searchMovies(query);
-      const actorResults = await searchActors(query);
-      const tvShowResults = await searchTVShows(query);
+      const movieResults = await searchMovies(query)
+      const actorResults = await searchActors(query)
+      const tvShowResults = await searchTVShows(query)
 
-      const movies = movieResults.results.map((movie) => ({
-        ...movie,
-        media_type: "movie",
-      }));
-      const actors = actorResults.results.map((actor) => ({
-        ...actor,
-        media_type: "person",
-      }));
-      const tvShows = tvShowResults.results.map((tvShow) => ({
-        ...tvShow,
-        media_type: "tv",
-      }));
-
-      const results = [...movies, ...actors, ...tvShows];
+      const results = [
+        ...movieResults.results,
+        ...actorResults.results,
+        ...tvShowResults.results,
+      ]
 
       if (results.length === 0) {
-        setError("No results found");
+        setError("No results found")
       } else {
-        navigate("/search-results", { state: { props: { results } } });
+        navigate("/search-results", { state: { props: { results } } })
       }
     } catch (error) {
-      setError("Error searching. Please try again.");
+      setError("Error searching. Please try again.")
     } finally {
-      setLoading(false);
+      setLoading(false)
     }
-  };
+  }
 
   return (
     <div className="search-bar">
-      <form onSubmit={handleSearch}>
+      <form onSubmit={handleSearch} className="flex space-x-2">
         <input
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
+          className="p-2 rounded-md text-black"
           placeholder="Search for movies, TV shows, or actors..."
         />
-        <button type="submit">Search</button>
+        <button
+          type="submit"
+          className="bg-red-600 px-4 py-2 rounded-md text-white"
+        >
+          Search
+        </button>
       </form>
       {loading && <div>Loading...</div>}
-      {error && <div className="error-message">{error}</div>}
+      {error && <div className="text-red-600">{error}</div>}
     </div>
-  );
-};
+  )
+}
 
-export default SearchBar;
+export default SearchBar
