@@ -43,7 +43,7 @@ const SearchBar = () => {
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          className="p-2 rounded-md text-black"
+          className="p-2 rounded-md text-black w-full focus:outline-none"
           placeholder="Search for movies, TV shows, or actors..."
         />
         <button

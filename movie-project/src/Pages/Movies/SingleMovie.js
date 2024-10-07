@@ -121,9 +121,9 @@ const SingleMovie = () => {
               <Link to={`/actors/${actor.id}`}>
                 {actor.profile_path ? (
                   <img
-                    src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`} // Smaller image size
+                    src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`}
                     alt={actor.name}
-                    className="rounded-md mb-2" // Smaller margin
+                    className="rounded-md mb-2"
                   />
                 ) : (
                   <p className="text-gray-400">No image available</p>
@@ -144,19 +144,10 @@ const SingleMovie = () => {
           <h2 className="text-3xl font-semibold text-black mb-4 text-center">
             Watch the Trailer
           </h2>
-          <div
-            className="trailer-container"
-            style={{
-              width: "400px",
-              height: "400px",
-              borderRadius: "10px",
-              overflow: "hidden",
-              boxShadow: "0 4px 20px rgba(0, 0, 0, 0.3)",
-            }}
-          >
+          <div className="trailer-container w-full max-w-4xl h-96 md:h-[500px] lg:h-[550px] rounded-lg overflow-hidden shadow-lg">
             <iframe
               title="trailer"
-              className="w-full h-full" // Full width and height of the container
+              className="w-full h-full"
               src={`https://www.youtube.com/embed/${videos[0].key}`}
               allowFullScreen
             />
@@ -173,14 +164,14 @@ const SingleMovie = () => {
           {relatedMovies.map((relatedMovie) => (
             <div
               key={relatedMovie.id}
-              className="bg-gray-800 p-4 rounded-lg shadow-lg flex flex-col items-center" // Flex for vertical alignment
+              className="bg-gray-800 p-4 rounded-lg shadow-lg flex flex-col items-center"
             >
               <Link to={`/movie/${relatedMovie.id}`}>
                 {relatedMovie.poster_path ? (
                   <img
-                    src={`https://image.tmdb.org/t/p/w200${relatedMovie.poster_path}`} // Smaller image size
+                    src={`https://image.tmdb.org/t/p/w200${relatedMovie.poster_path}`}
                     alt={relatedMovie.title}
-                    className="rounded-lg mb-2" // Smaller margin
+                    className="rounded-lg mb-2"
                   />
                 ) : (
                   <p className="text-gray-400">No poster available</p>

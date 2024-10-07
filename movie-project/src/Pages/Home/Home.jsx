@@ -52,20 +52,14 @@ const Home = () => {
         <p className="text-xl text-gray-400 mb-8">
           Browse through the latest, top-rated, and most popular movies.
         </p>
-        <Link
-          to="/movies/latest"
-          className="bg-red-600 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-red-700 transition duration-300"
-        >
-          Explore Movies
-        </Link>
       </section>
 
       {/* Movies Section */}
       <section className="py-12">
-        <div className="container mx-auto">
+        <div className="container mx-auto px-4">
           {/* Latest Movies */}
           <h2 className="text-3xl font-semibold mb-6">Latest Movies</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
             {latestMovies.map((movie) => (
               <div key={movie.id} className="movie-card bg-gray-800 rounded-lg">
                 <Link to={`/movie/${movie.id}`}>
@@ -84,7 +78,7 @@ const Home = () => {
 
           {/* Popular Movies */}
           <h2 className="text-3xl font-semibold mb-6 mt-10">Popular Movies</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
             {popularMovies.map((movie) => (
               <div key={movie.id} className="movie-card bg-gray-900 rounded-lg">
                 <Link to={`/movie/${movie.id}`}>
@@ -105,7 +99,7 @@ const Home = () => {
           <h2 className="text-3xl font-semibold mb-6 mt-10">
             Top-Rated Movies
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
             {topRatedMovies.map((movie) => (
               <div key={movie.id} className="movie-card bg-gray-800 rounded-lg">
                 <Link to={`/movie/${movie.id}`}>
@@ -124,7 +118,7 @@ const Home = () => {
 
           {/* Comedy Movies */}
           <h2 className="text-3xl font-semibold mb-6 mt-10">Comedy Movies</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
             {comedyMovies.map((movie) => (
               <div key={movie.id} className="movie-card bg-gray-900 rounded-lg">
                 <Link to={`/movie/${movie.id}`}>
